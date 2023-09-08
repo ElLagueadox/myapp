@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button fill="outline" style="float: left;" [routerLink]="['/login']">Volver</ion-button>
+    <ion-title>Bienvenido {{userHome}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h2 style="margin-left: 10px; margin-top: 10px;">Cursos</h2>
+  <ion-card>
+    <img src="../../assets/insignia-la-u.jpg">
+    <ion-card-header>
+      <ion-card-title>Programación de apps móviles</ion-card-title>
+      <ion-card-subtitle>PGY1331-99D</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Profesor: Diego "Rivarola" Cares
+    </ion-card-content>
+    <ion-button fill="outline" style="float: right;">Abrir</ion-button>
+  </ion-card>
+  <ion-card>
+    <img src="../../assets/que-es-pseudocodigo-1024x512.png">
+    <ion-card-header>
+      <ion-card-title>Programación web</ion-card-title>
+      <ion-card-subtitle>PGY1331-08D</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Profesor: Gabriel Loyola
+    </ion-card-content>
+    <ion-button fill="outline" style="float: right;">Abrir</ion-button>
+  </ion-card>
+  <ion-card>
+    <img src="../../assets/programacion-scaled-1200x675.jpg">
+    <ion-card-header>
+      <ion-card-title>Programación de base de datos</ion-card-title>
+      <ion-card-subtitle>PGY1331-66D</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Profesor: Orlandios Sepulveda
+    </ion-card-content>
+    <ion-button fill="outline" style="float: right;">Abrir</ion-button>
+  </ion-card>
+</ion-content>
