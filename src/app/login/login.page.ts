@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChildren, ViewChild } from '@angular/core';
 import { FormControl,FormGroup,Validators   } from '@angular/forms';
 import { Router,NavigationExtras } from '@angular/router';
+import { AnimationController, IonCard } from '@ionic/angular';
+
+import type { Animation } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +11,8 @@ import { Router,NavigationExtras } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  @ViewChild(IonCard, { read: ElementRef }) card: ElementRef<HTMLIonCardElement> | undefined;
+
   txtbtn = "INGRESAR";
   txtuser = "Usuario";
   txtpass = "Contraseña";
@@ -24,6 +29,8 @@ export class LoginPage implements OnInit {
     pass: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(8)]),
   });
 
+  
+
   public vhome() {
     if (this.userprofe == this.usuario.value.user && this.passprofe == this.usuario.value.pass){
       let navigationExtras: NavigationExtras = {
@@ -39,7 +46,29 @@ export class LoginPage implements OnInit {
     }
   }
 
-  constructor(private router: Router) { }
+  private animation: Animation | undefined ;
+  constructor(private router: Router, private animationCtrl: AnimationController) { }
+  
+  ngAfterViewInit() {
+    this.animation = this.animationCtrl
+      .create()
+      .addElement(this.card!.nativeElement)
+      .duration(1500)
+      .iterations(Infinity)
+      .fromTo('transform', 'translateX(0px)', 'translateX(100px)')
+      .fromTo('opacity', '1', '0.2');
+  }
+
+  play() {
+    this.animation!.play();
+  }
+  pause() {
+    this.animation!.pause();
+  }
+
+  stop() {
+    this.animation!.stop();
+  }
 
   ngOnInit() {
   }
