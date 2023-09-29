@@ -47,7 +47,7 @@ export class LoginPage implements OnInit {
   }
 
   private animation: Animation | undefined ;
-  constructor(private router: Router, private animationCtrl: AnimationController) { }
+  constructor(private router: Router, private animationCtrl: AnimationController, private auth:AuthGuard) { }
   
   ngAfterViewInit() {
     this.animation = this.animationCtrl
