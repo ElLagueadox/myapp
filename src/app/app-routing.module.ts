@@ -26,7 +26,11 @@ const routes: Routes = [
     path: 'seccion',
     loadChildren: () => import('./seccion/seccion.module').then( m => m.SeccionPageModule),
     canActivate: [AuthGuard]
+  },  {
+    path: 'page404',
+    loadChildren: () => import('./page404/page404.module').then( m => m.Page404PageModule)
   },
+
 ];
 
 @NgModule({
