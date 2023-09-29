@@ -33,7 +33,6 @@ export class LoginPage implements OnInit {
 
   public vhome() {
     if (this.userprofe == this.usuario.value.user && this.passprofe == this.usuario.value.pass){
-      this.auth.setAuthenticationStatus(true);
       let navigationExtras: NavigationExtras = {
         state: {user: this.usuario.value.user}
         };
