@@ -4,14 +4,14 @@ import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
-    canActivate: [AuthGuard]
-  },
-  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -26,7 +26,8 @@ const routes: Routes = [
     path: 'seccion',
     loadChildren: () => import('./seccion/seccion.module').then( m => m.SeccionPageModule),
     canActivate: [AuthGuard]
-  },  {
+  },
+  {
     path: 'page404',
     loadChildren: () => import('./page404/page404.module').then( m => m.Page404PageModule)
   },
