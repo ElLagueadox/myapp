@@ -17,4 +17,10 @@ export class ConsomeAPIService {
   apiURL = 'https://jsonplaceholder.typicode.com'
 
   constructor(private http:HttpClient) { }
+
+  getPosts():Observable<any>{
+    return this.http.get(this.apiURL+'/posts/').pipe(
+    retry(3)
+    );
+    }
 }
