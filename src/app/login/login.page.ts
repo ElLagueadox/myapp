@@ -4,7 +4,7 @@ import { Router, NavigationExtras, mapToCanActivate, CanActivate} from '@angular
 import { AnimationController, IonCard } from '@ionic/angular';
 
 import type { Animation } from '@ionic/angular';
-import { AuthGuard } from '../guard/auth.guard';
+import { AuthGuard } from '../guards/guard/auth.guard';
 
 @Component({
   selector: 'app-login',
