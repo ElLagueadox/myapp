@@ -23,7 +23,8 @@ const routes: Routes = [
   },
   {
     path: 'seccion',
-    loadChildren: () => import('./seccion/seccion.module').then( m => m.SeccionPageModule)
+    loadChildren: () => import('./seccion/seccion.module').then( m => m.SeccionPageModule),
+    canActivate: [AuthGuard]
   },
 ];
 
