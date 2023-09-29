@@ -29,7 +29,6 @@ export class LoginPage implements OnInit {
     user: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(8)]),
     pass: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(8)]),
   });
-  auth: any;
 
   public vhome() {
     if (this.userprofe == this.usuario.value.user && this.passprofe == this.usuario.value.pass){
