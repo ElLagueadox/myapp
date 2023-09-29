@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChildren, ViewChild } from '@angular/core';
-import { FormControl,FormGroup,Validators   } from '@angular/forms';
-import { Router,NavigationExtras } from '@angular/router';
+import { FormControl, FormGroup, Validators   } from '@angular/forms';
+import { Router, NavigationExtras, CanActivate } from '@angular/router';
 import { AnimationController, IonCard } from '@ionic/angular';
 
 import type { Animation } from '@ionic/angular';
