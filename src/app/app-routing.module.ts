@@ -28,7 +28,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'page404',
+    path: '**',
     loadChildren: () => import('./page404/page404.module').then( m => m.Page404PageModule)
   },
 
