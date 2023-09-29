@@ -10,26 +10,26 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'home2',
-    loadChildren: () => import('./home2/home2.module').then( m => m.Home2PageModule),
+    loadChildren: () => import('./pages/home2/home2.module').then( m => m.Home2PageModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'seccion',
-    loadChildren: () => import('./seccion/seccion.module').then( m => m.SeccionPageModule),
+    loadChildren: () => import('./pages/seccion/seccion.module').then( m => m.SeccionPageModule),
     canActivate: [AuthGuard]
   },
   {
     path: '**',
-    loadChildren: () => import('./page404/page404.module').then( m => m.Page404PageModule)
+    loadChildren: () => import('./pages/page404/page404.module').then( m => m.Page404PageModule)
   },
 
 ];
