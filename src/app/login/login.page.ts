@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChildren, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators   } from '@angular/forms';
-import { Router, NavigationExtras, mapToCanActivate} from '@angular/router';
+import { Router, NavigationExtras, mapToCanActivate, CanActivate} from '@angular/router';
 import { AnimationController, IonCard } from '@ionic/angular';
 
 import type { Animation } from '@ionic/angular';
@@ -33,6 +33,7 @@ export class LoginPage implements OnInit {
 
   public vhome() {
     if (this.userprofe == this.usuario.value.user && this.passprofe == this.usuario.value.pass){
+      this.auth.setAuthenticationStatus(true);
       let navigationExtras: NavigationExtras = {
         state: {user: this.usuario.value.user}
         };
