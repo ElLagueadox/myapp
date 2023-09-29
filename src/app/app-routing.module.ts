@@ -19,7 +19,8 @@ const routes: Routes = [
   },
   {
     path: 'home2',
-    loadChildren: () => import('./home2/home2.module').then( m => m.Home2PageModule)
+    loadChildren: () => import('./home2/home2.module').then( m => m.Home2PageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'seccion',

@@ -7,16 +7,16 @@ import { Router,NavigationExtras } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  private profeisAuthenticated = false;
+  private alumnoisAuthenticated = false;
   constructor(private router: Router) {}
 
-  setProfeAuthenticationStatus(status: boolean) {
-    this.profeisAuthenticated = status;
+  setAlumnoAuthenticationStatus(status2: boolean) {
+    this.alumnoisAuthenticated = status2;
   }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if (this.profeisAuthenticated) {
+      if (this.alumnoisAuthenticated) {
         return true; // Usuario autenticado, permitir el acceso.
       } else {
         return this.router.navigate(['/login']);
