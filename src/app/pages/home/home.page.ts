@@ -19,6 +19,7 @@ export class HomePage {
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
         this.userHome = this.router.getCurrentNavigation()?.extras.state?.['user'];
+        this.idProfe = this.router.getCurrentNavigation()?.extras.state?.['id'];
       }
     });
   }
@@ -41,5 +42,6 @@ export class HomePage {
   }
 
   ngOnInit(): void {
+    this.ObtSecciones()
   }
 }
