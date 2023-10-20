@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators   } from '@angular/forms';
 import { Router, NavigationExtras, mapToCanActivate, CanActivate} from '@angular/router';
 import { AnimationController, IonCard } from '@ionic/angular';
 import { ConsomeAPIService } from 'src/app/services/consome-api.service';
+import { usuario } from '../../modelo/usuario';
+import { AlertController } from '@ionic/angular';
 
 import type { Animation } from '@ionic/angular';
 import { AuthGuard } from '../../guards/guard/auth.guard';
@@ -90,8 +92,18 @@ export class LoginPage implements OnInit {
       });
   }
 
+  async presentAlert(){
+    const alert = await this.alertController.create({
+      header: 'Error Login',
+      subHeader: 'Infomación : ',
+      message: 'Usuario o contraseña son incorrecto',
+      buttons: ['Aceptar'],
+    });
+    await alert.present();
+  }
+
   private animation: Animation | undefined ;
-  constructor(private consomeApi:ConsomeAPIService, private router: Router, private animationCtrl: AnimationController, private auth:AuthGuard, private auth2:AuthGuard2) { }
+  constructor(private consomeApi:ConsomeAPIService, private router: Router, private animationCtrl: AnimationController, private auth:AuthGuard, private auth2:AuthGuard2, private alertController :AlertController) { }
   
   ngAfterViewInit() {
     this.animation = this.animationCtrl

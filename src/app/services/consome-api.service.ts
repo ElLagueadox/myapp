@@ -15,6 +15,8 @@ export class ConsomeAPIService {
   })
   }
 
+  url: string = 'http://127.0.0.1:5000/';
+
   apiURL = 'https://jsonplaceholder.typicode.com'
 
   public login(usuario: string, pass: string): Observable<HttpResponse<usuario>> {
