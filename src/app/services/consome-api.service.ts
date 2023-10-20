@@ -28,7 +28,7 @@ export class ConsomeAPIService {
     return this.http.post<usuario>(this.url + "login", body, { ...this.httpOptions, observe: 'response' });
   }
 
-  public obtenerCursosPorProfesor(profesorId: number): Observable<any> {
+  public ObtSeccionesPorProfe(profesorId: number): Observable<any> {
     return this.http.get<any>(this.url + 'profesores/' + profesorId + '/cursos', this.httpOptions);
   }
 

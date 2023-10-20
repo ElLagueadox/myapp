@@ -11,7 +11,7 @@ export class HomePage {
 
   userHome: any;
   tituloejemplo: any;
-  idProfesor : any;
+  idProfe : any;
 
   secciones: any[] = [];
 
@@ -34,7 +34,7 @@ export class HomePage {
     });
   }
   ObtSecciones(){
-    this.apiService.obtenerCursosPorProfesor(this.idProfesor).subscribe(data => {
+    this.apiService.ObtSeccionesPorProfe(this.idProfe).subscribe(data => {
       this.secciones = data;
       console.log(this.secciones);
     });
