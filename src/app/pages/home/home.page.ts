@@ -10,7 +10,9 @@ import { ConsomeAPIService } from 'src/app/services/consome-api.service';
 export class HomePage {
 
   userHome: any;
-  tituloUno: any;
+  tituloejemplo: any;
+
+  secciones: any[] = [];
 
   constructor(private consomeApi:ConsomeAPIService,private activeroute: ActivatedRoute, private router: Router) {
     this.activeroute.queryParams.subscribe(params => {
@@ -24,8 +26,16 @@ export class HomePage {
   Mostrar(){
     //this.presentAlert();
     this.consomeApi.getPosts().subscribe((res)=>{
-      this.tituloUno = '' + res[0].title;
-      console.log(res[0].title + "++++" + this.tituloUno);
+      this.tituloejemplo = '' + res[0].title;
+      console.log(res[0].title + "++++" + this.tituloejemplo);
+    }, (error)=>{
+      console.log(error);
+    });
+  }
+  ObtSecciones(){
+    this.consomeApi.getPosts().subscribe((res)=>{
+      this.tituloejemplo = '' + res[0].title;
+      console.log(res[0].title + "++++" + this.tituloejemplo);
     }, (error)=>{
       console.log(error);
     });

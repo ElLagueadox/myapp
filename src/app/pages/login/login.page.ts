@@ -2,9 +2,11 @@ import { Component, OnInit, ElementRef, ViewChildren, ViewChild } from '@angular
 import { FormControl, FormGroup, Validators   } from '@angular/forms';
 import { Router, NavigationExtras, mapToCanActivate, CanActivate} from '@angular/router';
 import { AnimationController, IonCard } from '@ionic/angular';
+import { ConsomeAPIService } from 'src/app/services/consome-api.service';
 
 import type { Animation } from '@ionic/angular';
 import { AuthGuard } from '../../guards/guard/auth.guard';
+import { AuthGuard2 } from '../../guards/guard2/auth.guard2';
 
 @Component({
   selector: 'app-login',
@@ -20,14 +22,16 @@ export class LoginPage implements OnInit {
   placeuser = "Ingrese su usuario";
   placepass = "Ingrese contraseña";
 
+  private typeuser!: usuario;
+
   userprofe = 'diego'
   passprofe = '1234'
   useralumno = 'tahir'
   passalumno = '4321'
 
     usuario = new FormGroup({
-    user: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(8)]),
-    pass: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(8)]),
+    user: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(20)]),
+    pass: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(20)]),
   });
 
   public vhome() {
@@ -47,8 +51,47 @@ export class LoginPage implements OnInit {
     }
   }
 
+  apiLogin() {
+    this.consomeApi.login(this.usuario.value.user!, this.usuario.value.pass!).subscribe(
+      (response) => {
+        this.typeuser = response.body as unknown as usuario;
+        console.log("bbb" + response.status);
+        if (response.status == 200) { 
+          let setData: NavigationExtras = {
+            state: {
+              id: this.typeuser.id,
+              user: this.typeuser.user,
+              correo: this.typeuser.correo,
+              nombre: this.typeuser.nombre,
+              tipoPerfil: this.typeuser.tipoPerfil
+            }
+          };
+
+          console.log("aaas"+this.typeuser.tipoPerfil);
+
+          if (this.typeuser.tipoPerfil === 1) {
+            this.auth.setProfeAuthenticationStatus(true);
+            this.router.navigate(['/home'], setData);
+          }
+
+          if (this.typeuser.tipoPerfil === 2) {
+            this.auth2.setAlumnoAuthenticationStatus(true);
+            this.router.navigate(['/home2'], setData);
+          }
+        }
+
+        if (response.status === 401) {
+          this.presentAlert();
+
+        }
+      },
+      (error) => {
+        console.error('Error en inicio de sesión:', error);
+      });
+  }
+
   private animation: Animation | undefined ;
-  constructor(private router: Router, private animationCtrl: AnimationController, private auth:AuthGuard) { }
+  constructor(private consomeApi:ConsomeAPIService, private router: Router, private animationCtrl: AnimationController, private auth:AuthGuard, private auth2:AuthGuard2) { }
   
   ngAfterViewInit() {
     this.animation = this.animationCtrl

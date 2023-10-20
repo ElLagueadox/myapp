@@ -6,7 +6,7 @@ import { Router,NavigationExtras } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class AuthGuard2 implements CanActivate {
   private alumnoisAuthenticated = false;
   constructor(private router: Router) {}
 
