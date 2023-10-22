@@ -32,6 +32,7 @@ export class ConsomeAPIService {
     return this.http.get<any>(this.url + 'profesores/' + profesorId + '/cursos', this.httpOptions);
   }
 
+
   constructor(private http:HttpClient) { }
 
   getPosts():Observable<any>{
