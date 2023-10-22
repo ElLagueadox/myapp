@@ -66,10 +66,10 @@ export class LoginPage implements OnInit {
         if (response.status == 200) { 
           let setData: NavigationExtras = {
             state: {
+              id: this.typeuser.tipoPerfil,
               name: this.typeuser.user,
               username: this.typeuser.password,
               email: this.typeuser.correo,
-              id: this.typeuser.tipoPerfil
             }
           };
 
