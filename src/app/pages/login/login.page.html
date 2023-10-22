@@ -20,7 +20,7 @@
         formControlName="pass" type="password"></ion-input>
     </ion-item>
 
-    <ion-button expand="block" color="success" [disabled]="!usuario.valid" (click)="vhome()"
+    <ion-button expand="block" color="success" [disabled]="!usuario.valid" (click)="apiLogin()"
       fill="outline">{{txtbtn}}</ion-button>
     <!--<ion-button expand="block" color="success"  [routerLink]="['/home']" fill="outline">Ir a home</ion-button> -->
   </form>
@@ -28,9 +28,9 @@
   <ion-card #card>
     <ion-card-content>Card</ion-card-content>
   </ion-card>
-  
+  <!--
   <ion-button (click)="play()">Play</ion-button>
   <ion-button (click)="pause()">Pause</ion-button>
   <ion-button (click)="stop()">Stop</ion-button>
-
+-->
 </ion-content>

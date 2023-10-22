@@ -26,16 +26,21 @@ export class LoginPage implements OnInit {
 
   private typeuser!: usuario;
 
+  usuarios: any[] = [];
+
+
+  /*
   userprofe = 'diego'
   passprofe = '1234'
   useralumno = 'tahir'
   passalumno = '4321'
+  */
 
     usuario = new FormGroup({
     user: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(20)]),
-    pass: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(20)]),
+    pass: new FormControl('',[Validators.required, Validators.minLength(1),Validators.maxLength(20)]),
   });
-
+/*
   public vhome() {
     if (this.userprofe == this.usuario.value.user && this.passprofe == this.usuario.value.pass){
       this.auth.setProfeAuthenticationStatus(true);
@@ -52,7 +57,7 @@ export class LoginPage implements OnInit {
         this.router.navigate(['/home2'],navigationExtras);
     }
   }
-
+*/
   apiLogin() {
     this.consomeApi.login(this.usuario.value.user!, this.usuario.value.pass!).subscribe(
       (response) => {
@@ -61,7 +66,7 @@ export class LoginPage implements OnInit {
         if (response.status == 200) { 
           let setData: NavigationExtras = {
             state: {
-              id: this.typeuser.id,
+              id: this.typeuser.password,
               user: this.typeuser.user,
               correo: this.typeuser.correo,
               nombre: this.typeuser.nombre,
@@ -103,8 +108,9 @@ export class LoginPage implements OnInit {
   }
 
   private animation: Animation | undefined ;
-  constructor(private consomeApi:ConsomeAPIService, private router: Router, private animationCtrl: AnimationController, private auth:AuthGuard, private auth2:AuthGuard2, private alertController :AlertController) { }
-  
+  constructor(private consomeApi:ConsomeAPIService, private router: Router, private animationCtrl: AnimationController, private auth:AuthGuard,
+    private auth2:AuthGuard2, private alertController :AlertController) { }
+  /*
   ngAfterViewInit() {
     this.animation = this.animationCtrl
       .create()
@@ -125,7 +131,7 @@ export class LoginPage implements OnInit {
   stop() {
     this.animation!.stop();
   }
-
+*/
   ngOnInit() {
   }
 }
