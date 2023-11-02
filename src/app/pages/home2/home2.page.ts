@@ -30,7 +30,7 @@ export class Home2Page implements OnInit {
     let setData: NavigationExtras = {
       state: {
         idProfesor: this.idProfesor,
-        idCurso : cursoId        
+        cursoId : cursoId
       }
     };
     this.router.navigate(['/detallecurso'],setData);
