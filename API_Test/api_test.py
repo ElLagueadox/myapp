@@ -4,11 +4,11 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-profes = [
+profesores = [
     {
         "id": 1,
-        "nombre": "José Arévalo",
-        "secciones": [
+        "nombre": "Pablo Muñoz",
+        "cursos": [
             {
                 "id": 1,
                 "nombre": "Matemáticas",
@@ -43,17 +43,17 @@ usuarios = [
         "id": 1,
         "user": "docente",
         "password": "password1",
-        "nombre": "José Arévalo",
+        "nombre": "Pablo Muñoz",
         "perfil":  1,
-        "correo": "jose.a@gmail.com"
+        "correo": "pablo@gmail.com"
     },
     {
         "id": 2,
         "user": "alumno",
         "password": "password2",
-        "nombre": "Tahirsinho",
+        "nombre": "Tahir",
         "perfil": 2,
-        "correo": "tah@gmail.com"
+        "correo": "tahir@gmail.com"
     }
 ]
 
@@ -79,18 +79,18 @@ def login():
 
 @app.route('/profesores', methods=['GET'])
 def obtener_profesores():
-    return jsonify(profes), 200
+    return jsonify(profesores), 200
 
 @app.route('/profesores/<int:profesor_id>/cursos', methods=['GET'])
 def obtener_cursos_profesor(profesor_id):
-    profesor = next((p for p in profes if p["id"] == profesor_id), None)
+    profesor = next((p for p in profesores if p["id"] == profesor_id), None)
     if not profesor:
         return jsonify({"message": "Profesor no encontrado"}), 404
     return jsonify(profesor["cursos"]), 200
 
 @app.route('/profesores/<int:profesor_id>/cursos/<int:curso_id>/alumnos', methods=['GET'])
 def obtener_alumnos_curso(profesor_id, curso_id):
-    profesor = next((p for p in profes if p["id"] == profesor_id), None)
+    profesor = next((p for p in profesores if p["id"] == profesor_id), None)
     if not profesor:
         return jsonify({"message": "Profesor no encontrado"}), 404
     curso = next((c for c in profesor["cursos"] if c["id"] == curso_id), None)

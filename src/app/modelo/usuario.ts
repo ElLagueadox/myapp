@@ -1,4 +1,4 @@
-import { curso } from "./seccion";
+import { curso } from "./curso";
 import { perfil } from "./perfil";
 
 export class usuario{
