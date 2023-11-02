@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
   placeuser = "Ingrese su usuario";
   placepass = "Ingrese contraseña";
 
-  private typeuser!: usuario;
+  private typeuser: usuario;
 
   usuarios: any[] = [];
 
@@ -38,7 +38,7 @@ export class LoginPage implements OnInit {
 
     usuario = new FormGroup({
     user: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(20)]),
-    pass: new FormControl('',[Validators.required, Validators.minLength(1),Validators.maxLength(20)]),
+    pass: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(20)]),
   });
 /*
   public vhome() {
