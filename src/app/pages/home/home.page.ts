@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router} from "@angular/router";
-import { ConsomeAPIService } from 'src/app/services/consome-api.service';
 
 @Component({
   selector: 'app-home',
@@ -9,39 +7,8 @@ import { ConsomeAPIService } from 'src/app/services/consome-api.service';
 })
 export class HomePage {
 
-  userHome: any;
-  tituloejemplo: any;
-  idProfe : any;
+  constructor() { }
 
-  secciones: any[] = [];
-
-  constructor(private consomeApi:ConsomeAPIService,private activeroute: ActivatedRoute, private router: Router, private apiService : ConsomeAPIService) {
-    this.activeroute.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation()?.extras.state) {
-        this.userHome = this.router.getCurrentNavigation()?.extras.state?.['user'];
-        this.idProfe = this.router.getCurrentNavigation()?.extras.state?.['id'];
-      }
-    });
-  }
-
-  //Método para mostrar
-  Mostrar(){
-    //this.presentAlert();
-    this.consomeApi.getPosts().subscribe((res)=>{
-      this.tituloejemplo = '' + res[0].title;
-      console.log(res[0].title + "++++" + this.tituloejemplo);
-    }, (error)=>{
-      console.log(error);
-    });
-  }
-  ObtSecciones(){
-    this.apiService.ObtSeccionesPorProfe(this.idProfe).subscribe(data => {
-      this.secciones = data;
-      console.log(this.secciones);
-    });
-  }
-
-  ngOnInit(): void {
-    this.ObtSecciones()
+  ngOnInit() {
   }
 }
