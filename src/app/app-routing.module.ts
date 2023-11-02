@@ -30,17 +30,10 @@ const routes: Routes = [
   {
     path: '**',
     loadChildren: () => import('./pages/page404/page404.module').then( m => m.Page404PageModule)
-  },  {
-    path: 'detalleseccion',
-    loadChildren: () => import('./detalleseccion/detalleseccion.module').then( m => m.DetalleseccionPageModule)
   },
   {
     path: 'detallecurso',
     loadChildren: () => import('./detallecurso/detallecurso.module').then( m => m.DetallecursoPageModule)
-  },
-  {
-    path: 'homealumno',
-    loadChildren: () => import('./homealumno/homealumno.module').then( m => m.HomealumnoPageModule)
   },
 
 
