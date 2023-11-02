@@ -31,26 +31,24 @@ export class DetallecursoPage implements OnInit {
     
   }
 
-  generateQRCode() {
+  /*generateQRCode() {
     if (this.cursol) {
         const fechaActual = new Date().toISOString().split('T')[0];  // Fecha en formato YYYY-MM-DD
         const data = `${this.cursol.codigo}-${this.cursol.seccion}-${fechaActual}`;
-/*
         let qr = qrcode(4, 'L');
         qr.addData(data);
         qr.make();
         this.qrDataURL = qr.createDataURL(4);
-        */
     }
   }
-
+*/
 
   ngOnInit() {    
     this.apiService.obtenerCursosPorProfesor(this.profesorId).subscribe(
         data => {
           this.cursol = data.find((curso: curso) => curso.id === this.cursoId);
             this.alumnosl = this.cursol ? this.cursol.alumnos : []; 
-            this.generateQRCode();
+            //this.generateQRCode();
         },
         error => {
             console.error("Error obteniendo cursos:", error);
