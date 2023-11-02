@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Router, NavigationExtras } from "@angular/router";
+import { ConsomeAPIService } from 'src/app/services/consome-api.service';
 
 @Component({
   selector: 'app-home2',
@@ -9,15 +10,37 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class Home2Page implements OnInit {
 
   userHome: any;
+  pass: any;
+  value = "dcaresg";
+  idProfesor : any;
 
-  constructor(private activeroute: ActivatedRoute, private router: Router) {
+  cursos: any[] = [];
+
+  constructor(private activeroute: ActivatedRoute, private router: Router, private apiService : ConsomeAPIService) {
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
         this.userHome = this.router.getCurrentNavigation()?.extras.state?.['user'];
+        this.idProfesor = this.router.getCurrentNavigation()?.extras.state?.['id'];
       }
     });
+
   }
-  
-  ngOnInit(): void {
+
+  verDetalleCurso(cursoId: number) {
+    let setData: NavigationExtras = {
+      state: {
+        idProfesor: this.idProfesor,
+        idCurso : cursoId        
+      }
+    };
+    this.router.navigate(['/detallecurso'],setData);
+}
+
+
+  ngOnInit() {
+    this.apiService.obtenerCursosPorProfesor(this.idProfesor).subscribe(data => {
+      this.cursos = data;
+      console.log(this.cursos);
+    });
   }
 }
