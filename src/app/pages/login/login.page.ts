@@ -62,12 +62,12 @@ export class LoginPage implements OnInit {
 
           if (this.typeuser.tipoPerfil === 1) {
             this.auth.setProfeAuthenticationStatus(true);
-            this.router.navigate(['/home'], setData);
+            this.router.navigate(['/home2'], setData);
           }
 
           if (this.typeuser.tipoPerfil === 2) {
             this.auth2.setAlumnoAuthenticationStatus(true);
-            this.router.navigate(['/home2'], setData);
+            this.router.navigate(['/home'], setData);
           }
         }
 
