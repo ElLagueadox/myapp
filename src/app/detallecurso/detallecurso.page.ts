@@ -13,7 +13,7 @@ import { ActivatedRoute, Router, Route } from '@angular/router';
 })
 export class DetallecursoPage implements OnInit {
 
-  cursol: curso | undefined;
+  cursol: curso | any;
   alumnosl: alumnos[] | undefined = [];
   profesorId: number = 1; 
   cursoId:any;
@@ -25,7 +25,8 @@ export class DetallecursoPage implements OnInit {
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
         this.profesorId = this.router.getCurrentNavigation()?.extras.state?.['idProfesor'];
-        this.cursoId = this.router.getCurrentNavigation()?.extras.state?.['idCurso'];
+        this.cursoId = this.router.getCurrentNavigation()?.extras.state?.['cursoId'];
+        console.log(this.cursoId);
       }
     });
     
@@ -45,11 +46,12 @@ export class DetallecursoPage implements OnInit {
 
   ngOnInit() {    
     this.apiService.obtenerCursosPorProfesor(this.profesorId).subscribe(
-        data => {
-          this.cursol = data.find((curso: curso) => curso.id === this.cursoId);
-            this.alumnosl = this.cursol ? this.cursol.alumnos : []; 
-            //this.generateQRCode();
-        },
+      data => {
+        this.cursol = data.find((curso: curso) => curso.id === this.cursoId);
+          this.alumnosl = this.cursol ? this.cursol.alumnos : []; 
+          console.log(this.alumnosl);
+          //this.generateQRCode();
+      },
         error => {
             console.error("Error obteniendo cursos:", error);
         }
@@ -57,3 +59,8 @@ export class DetallecursoPage implements OnInit {
 }
 
 }
+/*data => {
+          this.cursol = data.find((curso: curso) => curso.id === this.cursoId);
+            this.alumnosl = this.cursol ? this.cursol.alumnos : []; 
+            //this.generateQRCode();
+        }*/

@@ -11,7 +11,7 @@ profesores = [
         "cursos": [
             {
                 "id": 1,
-                "nombre": "Matemáticas",
+                "nombre": "Estadística",
                 "codigo": "PGY1111",
                 "seccion": "013V",
                 "alumnos": [
@@ -21,14 +21,14 @@ profesores = [
             },
             {
                 "id": 2,
-                "nombre": "Fisica",
+                "nombre": "Arquitectura",
                 "codigo": "PGY2222",
                 "seccion": "015V",
                 "alumnos": []
             },
             {
                 "id": 3,
-                "nombre": "Quimica",
+                "nombre": "Algoritmos",
                 "codigo": "PGY3333",
                 "seccion": "018V",
                 "alumnos": []

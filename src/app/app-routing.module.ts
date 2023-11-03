@@ -23,13 +23,14 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: '**',
-    loadChildren: () => import('./pages/page404/page404.module').then( m => m.Page404PageModule)
-  },
-  {
     path: 'detallecurso',
     loadChildren: () => import('./detallecurso/detallecurso.module').then( m => m.DetallecursoPageModule)
   },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/page404/page404.module').then( m => m.Page404PageModule)
+  },
+  
 
 
 ];
