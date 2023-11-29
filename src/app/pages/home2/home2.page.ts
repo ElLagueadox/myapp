@@ -45,7 +45,8 @@ export class Home2Page implements OnInit {
 
 
   ngOnInit() {
-    this.apiService.obtenerCursosPorProfesor(this.idProfesor).subscribe(data => {
+    this.apiService.obtenerCursosPorProfesor(this.idProfesor).subscribe(
+      data => {
       this.cursos = data;
       console.log(this.cursos);
     });
