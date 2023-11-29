@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from "@angular/router";
 import { ConsomeAPIService } from 'src/app/services/consome-api.service';
+import { TestService } from '../../services/test.service';
 
 @Component({
   selector: 'app-home2',
@@ -9,6 +10,12 @@ import { ConsomeAPIService } from 'src/app/services/consome-api.service';
 })
 export class Home2Page implements OnInit {
 
+  public mensaje: string = "";
+  public entrada = {
+    numero1: 0,
+    numero2: 0
+  };
+
   userHome: any;
   pass: any;
   value = "dcaresg";
@@ -16,7 +23,7 @@ export class Home2Page implements OnInit {
 
   cursos: any[] = [];
 
-  constructor(private activeroute: ActivatedRoute, private router: Router, private apiService : ConsomeAPIService) {
+  constructor(private activeroute: ActivatedRoute, private router: Router, private apiService : ConsomeAPIService, private service: TestService) {
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
         this.userHome = this.router.getCurrentNavigation()?.extras.state?.['user'];
@@ -42,5 +49,12 @@ export class Home2Page implements OnInit {
       this.cursos = data;
       console.log(this.cursos);
     });
+  }
+
+  doSumar(){
+    this.mensaje= "La suma es: " + 
+      this.service.sumar(
+        Number(this.entrada.numero1),
+        Number(this.entrada.numero2));
   }
 }
