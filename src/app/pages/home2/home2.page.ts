@@ -52,10 +52,10 @@ export class Home2Page implements OnInit {
     });
   }
 
-  doSumar(){
+  /*doSumar(){
     this.mensaje= "La suma es: " + 
       this.service.sumar(
         Number(this.entrada.numero1),
         Number(this.entrada.numero2));
-  }
+  }*/
 }
