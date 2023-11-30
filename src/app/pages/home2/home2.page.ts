@@ -51,11 +51,4 @@ export class Home2Page implements OnInit {
       console.log(this.cursos);
     });
   }
-
-  /*doSumar(){
-    this.mensaje= "La suma es: " + 
-      this.service.sumar(
-        Number(this.entrada.numero1),
-        Number(this.entrada.numero2));
-  }*/
 }

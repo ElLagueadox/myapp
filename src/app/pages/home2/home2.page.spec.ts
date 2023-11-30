@@ -29,11 +29,5 @@ describe('Home2Page', () => {
     expect(component).toBeTruthy();
   });
 
-  /*it('doSumar() OK', () => {
-    mockedTestService.sumar.and.returnValue(9);
-    component.entrada.numero1=4;
-    component.entrada.numero2=5;
-    component.doSumar();
-    expect(component.mensaje).toBe("La suma es: 9");
-  });*/
+
 });
