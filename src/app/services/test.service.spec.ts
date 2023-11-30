@@ -15,6 +15,6 @@ describe('TestService', () => {
   });
 
   it('sumar OK', () => {
-    expect(service.sumar(2,3)).toBe(5);
+    expect(service.sumar(4,5)).toBe(9);
   });
 });
