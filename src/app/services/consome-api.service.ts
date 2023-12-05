@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { retry, catchError } from 'rxjs/operators';
 import { usuario } from '../modelo/usuario';
 import { alumnos } from '../modelo/alumnos';
+import { LoginPage } from 'src/app/pages/login/login.page';
 
 @Injectable({
   providedIn: 'root'
@@ -10,16 +12,8 @@ import { alumnos } from '../modelo/alumnos';
 export class ConsomeAPIService {
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }) }
 
-  url: string = 'http://127.0.0.1:5000/';
+  url: string = 'https://apimocha.com/consomeapi1/';
 
-  public login(usuario: string, pass: string): Observable<HttpResponse<usuario>> {
-    const body = {
-      user: usuario,
-      password: pass
-    };
-
-    return this.http.post<usuario>(this.url + "login", body, { ...this.httpOptions, observe: 'response' });
-  }
 
   public obtenerCursosPorProfesor(profesorId: number): Observable<any> {
     return this.http.get<any>(this.url + 'profesores/' + profesorId + '/cursos', this.httpOptions);
@@ -29,6 +23,9 @@ export class ConsomeAPIService {
     return this.http.get<alumnos[]>(this.url + 'profesores/' + profesorId + '/cursos/' + cursoId + '/alumnos', this.httpOptions);
   }
 
+  obtenerUsuarios():Observable<any>{
+    return this.http.get(this.url+'users');
+    }
 
   constructor(private http: HttpClient) {
   }
