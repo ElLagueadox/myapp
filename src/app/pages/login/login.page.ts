@@ -4,10 +4,6 @@ import { AnimationController, IonCard } from '@ionic/angular';
 import type { Animation } from '@ionic/angular';
 import type { QueryList } from '@angular/core';
 import { Component,OnInit, ElementRef, ViewChildren, ViewChild } from '@angular/core';
-/*import { usuario } from '../../modelo/usuario';*/
-import { perfil } from '../../modelo/perfil';
-import { curso } from '../../modelo/curso';
-
 import { ConsomeAPIService } from 'src/app/services/consome-api.service';
 import { AlertController } from '@ionic/angular';
 import { AuthGuard } from '../../guards/guard/auth.guard';
@@ -37,7 +33,7 @@ export class LoginPage implements OnInit {
     pass: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(20)]),
   })
 
-  Login(){
+  /*Login(){
       this.consomeApi.obtenerUsuarios().subscribe((res)=>{
       console.log();
       this.typeuser = [res[0].id, res[0].user, res[0].password, res[0].nombre, res[0].perfil, res[0].correo,
@@ -55,7 +51,7 @@ export class LoginPage implements OnInit {
     },(error)=>{
       console.log('Error en inicio de sesión:', error);
     });
-  }
+  }*/
 
   async presentAlert(){
     const alert = await this.alertController.create({
