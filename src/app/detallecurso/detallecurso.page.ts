@@ -20,15 +20,15 @@ export class DetallecursoPage implements OnInit {
 
   qrDataURL: string = ''; 
 
-  constructor(private apiService: ConsomeAPIService, private router: Router, private activeroute : ActivatedRoute) { 
+  constructor(private apiService: ConsomeAPIService, private router: Router/*, private activeroute : ActivatedRoute*/) { 
 
-    this.activeroute.queryParams.subscribe(params => {
+    /*this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
         this.profesorId = this.router.getCurrentNavigation()?.extras.state?.['idProfesor'];
         this.cursoId = this.router.getCurrentNavigation()?.extras.state?.['cursoId'];
         console.log(this.cursoId);
       }
-    });
+    });*/
     
   }
 
@@ -45,7 +45,7 @@ export class DetallecursoPage implements OnInit {
 */
 
   ngOnInit() {    
-    this.apiService.obtenerCursosPorProfesor(this.profesorId).subscribe(
+    /*this.apiService.obtenerCursosPorProfesor(this.profesorId).subscribe(
       data => {
         this.cursol = data.find((curso: curso) => curso.id === this.cursoId);
           this.alumnosl = this.cursol ? this.cursol.alumnos : []; 
@@ -55,7 +55,7 @@ export class DetallecursoPage implements OnInit {
         error => {
             console.error("Error obteniendo cursos:", error);
         }
-    );
+    );*/
 }
 
 }
