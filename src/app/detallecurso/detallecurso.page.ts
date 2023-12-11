@@ -41,8 +41,8 @@ export class DetallecursoPage implements OnInit {
         qr.make();
         this.qrDataURL = qr.createDataURL(4);
     }
-  }
-*/
+  }*/
+
 
   ngOnInit() {    
     this.apiService.obtenerCursosPorProfesor(this.profesorId).subscribe(
