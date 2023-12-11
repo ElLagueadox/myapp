@@ -23,13 +23,13 @@ export class Home2Page implements OnInit {
 
   cursos: any[] = [];
 
-  constructor(private activeroute: ActivatedRoute, private router: Router, private apiService : ConsomeAPIService, private service: TestService) {
-    this.activeroute.queryParams.subscribe(params => {
+  constructor(/*private activeroute: ActivatedRoute, */private router: Router, private apiService : ConsomeAPIService, private service: TestService) {
+    /*this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
         this.userHome = this.router.getCurrentNavigation()?.extras.state?.['user'];
         this.idProfesor = this.router.getCurrentNavigation()?.extras.state?.['id'];
       }
-    });
+    });*/
 
   }
 
@@ -45,10 +45,10 @@ export class Home2Page implements OnInit {
 
 
   ngOnInit() {
-    this.apiService.obtenerCursosPorProfesor(this.idProfesor).subscribe(
+    /*this.apiService.obtenerCursosPorProfesor(this.idProfesor).subscribe(
       data => {
       this.cursos = data;
       console.log(this.cursos);
-    });
+    });*/
   }
 }

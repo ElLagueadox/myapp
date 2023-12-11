@@ -15,7 +15,7 @@ export class ConsomeAPIService {
   url: string = 'https://apimocha.com/consomeapi/';
 
 
-  public obtenerCursosPorProfesor(profesorId: number): Observable<any> {
+  /*public obtenerCursosPorProfesor(profesorId: number): Observable<any> {
     return this.http.get<any>(this.url + 'profesores/' + profesorId + '/cursos', this.httpOptions);
   }
 
@@ -25,8 +25,8 @@ export class ConsomeAPIService {
 
   obtenerUsuarios():Observable<any>{
     return this.http.get(this.url+'users');
-    }
+    }*/
 
-  constructor(private http: HttpClient) {
+  constructor(/*private http: HttpClient*/) {
   }
 }
