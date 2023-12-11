@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
     pass: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(20)]),
   })
 
-  /*Login(){
+  Login(){
       this.consomeApi.obtenerUsuarios().subscribe((res)=>{
       console.log();
       this.typeuser = [res[0].id, res[0].user, res[0].password, res[0].nombre, res[0].perfil, res[0].correo,
@@ -51,7 +51,7 @@ export class LoginPage implements OnInit {
     },(error)=>{
       console.log('Error en inicio de sesión:', error);
     });
-  }*/
+  }
 
   async presentAlert(){
     const alert = await this.alertController.create({
